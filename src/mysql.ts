@@ -9,3 +9,12 @@ export function namedPlaceholders(query:string, values:any) {
         return txt;
     });
 }
+
+export function validateField(field:string,
+                              validFields:string[],
+                              defaultField = 'id') {
+    if (!field) {
+        return defaultField;
+    }
+    return validFields.includes(field) ? field : defaultField;
+}
