@@ -18,3 +18,16 @@ export function validateField(field:string,
     }
     return validFields.includes(field) ? field : defaultField;
 }
+
+export function validateFields(fields:string,
+                               validFields:string[],
+                               defaultFields = '*') {
+    if (!fields) {
+        return defaultFields;
+    }
+    const result = fields
+        .split(',')
+        .filter((item)=>
+            validFields.includes(item));
+    return result.length ? result :defaultFields;
+}
