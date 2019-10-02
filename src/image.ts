@@ -33,8 +33,8 @@ export function makeImageSet(image:ImageSet)
         gm(image.src)
             .noProfile()
             .resize(size.value)
-            .blur(size.blur[0] || image.blur[0] || 0,
-                  size.blur[1] || image.blur[1] || 0)
+            .blur(size.blur && size.blur[0] || 0,
+                  size.blur && size.blur[1])
             .quality(size.quality || image.quality)
             .write(dest, (error)=>
                 error && console.log(error));
@@ -47,7 +47,6 @@ interface ImageSet {
     destDir:boolean;
     format:string;
     quality:number;
-    blur:number[];
     sizes: {
         value:number;
         name:string;
