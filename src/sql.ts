@@ -1,5 +1,3 @@
-console.log('mysql is deprecated now, use sql instead');
-
 export function namedPlaceholders(query:string, values:any) {
     if (!values) {
         return query;

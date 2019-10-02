@@ -14,3 +14,7 @@ export function listFiles(dir:string, filter?:string[], files:string[] = [])
     });
     return files;
 }
+
+export function removeExtension(path:string) {
+    return path.replace(extname(path), '');
+}
