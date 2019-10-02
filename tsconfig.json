@@ -4,6 +4,7 @@
     "target": "es5",
     "strict": true,
     "strictNullChecks": false,
+    "allowSyntheticDefaultImports": true,
     "declaration": true,
     "rootDir": "./src",
     "outDir": "./dist",
