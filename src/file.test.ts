@@ -1,6 +1,6 @@
 import {mkdirpSync, removeSync,
         writeFileSync} from 'fs-extra';
-import {listFiles} from './file';
+import {listFiles, removeExtension} from './file';
 
 test('listFiles', ()=> {
     removeSync('/tmp/listFiles');
@@ -33,4 +33,10 @@ test('listFiles', ()=> {
             '/tmp/listFiles/a/2.dat',
             '/tmp/listFiles/a/3.dat'
         ]));
+});
+
+test('removeExtension', ()=> {
+    expect(removeExtension('a.txt')).toEqual('a');
+    expect(removeExtension('/tmp/listFiles/a/1.txt')).toEqual('/tmp/listFiles/a/1');
+    expect(removeExtension('tmp/listFiles/a/1.txt')).toEqual('tmp/listFiles/a/1');
 });
