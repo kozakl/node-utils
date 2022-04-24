@@ -5,7 +5,7 @@ const gm = require('gm').subClass({imageMagick: true});
 export function imageSize(image:string) {
     return new Promise((resolve, reject)=> {
         gm(image)
-            .size((error, value)=> {
+            .size((error:string, value:any)=> {
                 return !error ? resolve(value) :
                                 reject(error)
         });
@@ -39,7 +39,7 @@ export async function makeImageSet(image:ImageSet, debug = false)
                     .resize(size.value)
                     .blur(0, size.blur || 0.001)
                     .quality(size.quality || image.quality)
-                    .write(dest, (error)=>
+                    .write(dest, (error:string)=>
                         !error ? resolve() :
                                  reject(error));
             } else {
@@ -55,7 +55,7 @@ export async function makeImageSet(image:ImageSet, debug = false)
                         0.11 * size.value,
                         size.name
                     )
-                    .write(dest, (error)=>
+                    .write(dest, (error:string)=>
                         !error ? resolve() :
                                  reject(error));
             }
