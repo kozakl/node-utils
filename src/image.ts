@@ -1,6 +1,6 @@
 import {basename, extname, join} from 'path';
 import {existsSync, mkdirpSync} from 'fs-extra';
-import gm from 'gm';
+const gm = require('gm').subClass({imageMagick: true});
 
 export function imageSize(image:string) {
     return new Promise((resolve, reject)=> {
